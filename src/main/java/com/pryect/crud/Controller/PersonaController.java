@@ -1,13 +1,14 @@
 package com.pryect.crud.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -41,6 +42,15 @@ public class PersonaController {
     {
         service.save(p);
         return "redirect:/listar";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable int id, Model m)
+    {
+        Optional<Persona> persona = service.listarId(id);
+        m.addAttribute("persona", persona);
+
+        return "form";
     }
 
 }

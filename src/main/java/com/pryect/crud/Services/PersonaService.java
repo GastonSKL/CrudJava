@@ -24,7 +24,8 @@ public class PersonaService  implements IPersonaService{
 
     @Override
     public Optional<Persona> listarId(int id) {
-        throw new UnsupportedOperationException("Unimplemented method 'listarId'");
+
+        return data.findById(id);
     }
 
     @Override

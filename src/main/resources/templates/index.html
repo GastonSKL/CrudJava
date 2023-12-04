@@ -24,7 +24,7 @@
                     <td th:text="${persona.name}"></td>
                     <td th:text="${persona.telefono}"></td>
                     <td>
-                        <a class="btn btn-warning">Editar</a>
+                        <a class="btn btn-warning" th:href="@{/editar/} + ${persona.id}">Editar</a>
                         <a class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
