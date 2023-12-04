@@ -8,6 +8,6 @@ import com.pryect.crud.Model.Persona;
 public interface IPersonaService {
     public List<Persona> listar();
     public Optional<Persona> listarId(int id);
-    public int Save (Persona p);
+    public int save (Persona p);
     public void Delete (int id);
 }

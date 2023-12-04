@@ -3,12 +3,17 @@ package com.pryect.crud.Services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.pryect.crud.InterfaceServices.IPersonaService;
 import com.pryect.crud.Interfaces.IPersona;
 import com.pryect.crud.Model.Persona;
 
+@Service
 public class PersonaService  implements IPersonaService{
 
+    @Autowired
     private IPersona data;
 
     @Override
@@ -23,8 +28,11 @@ public class PersonaService  implements IPersonaService{
     }
 
     @Override
-    public int Save(Persona p) {
-        throw new UnsupportedOperationException("Unimplemented method 'Save'");
+    public int save(Persona p) {
+        int res = 0;
+        Persona persona = data.save(p);
+        if(!persona.equals(null)) res = 1;
+        return res;
     }
 
     @Override
